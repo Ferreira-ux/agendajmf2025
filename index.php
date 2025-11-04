@@ -1,13 +1,13 @@
 <?php
-  
-  session_start(); 
+
+  session_start();
 
   // Verifica se o usuário está autenticado (verifica se a sessão está ativa e se o usuário está logado)
   if (isset($_SESSION['loginUser']) && $_SESSION['senhaUser'] === true) {
       // Redireciona para a página home
       header("Location: paginas/home.php");
   }
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_br">
@@ -38,7 +38,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Para acessar entre com E-mail e Senha</p>
-
+            <!-- Formulário de acesso ao login -->
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Digite seu E-mail...">
@@ -58,7 +58,7 @@
         </div>
         <div class="row">
           <div class="col-8">
-            
+
           </div>
           <!-- /.col -->
           <div class="col-12" style="margin-bottom: 5px">
@@ -69,18 +69,18 @@
       </form>
       <?php
 include_once('config/conexao.php');
-                   
+
 // Exibir mensagens com base na ação
 if (isset($_GET['acao'])) {
     $acao = $_GET['acao'];
     if ($acao == 'negado') {
         echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Erro ao Acessar o sistema!</strong> Efetue o login ;(</div>';
-       
+
     } elseif ($acao == 'sair') {
         echo '<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Você acabou de sair da Agenda Eletrônica!</strong> :(</div>';
-       
+
     }
 }
 
@@ -137,10 +137,10 @@ if (isset($_POST['login'])) {
     }
 }
       ?>
-     
+
       <!-- /.social-auth-links -->
 
-      
+
       <p style="text-align: center; padding-top: 25px">
         <a href="cad_user.php" class="text-center">Se ainda não tem cadastro clique aqui!</a>
       </p>
